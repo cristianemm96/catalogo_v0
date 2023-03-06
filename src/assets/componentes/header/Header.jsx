@@ -1,17 +1,16 @@
 import React from "react";
 import Buscador from "./Buscador";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
       <header className="fixed-top">
-        <nav 
+        <nav
           className="navbar navbar-dark bg-dark navbar-expand-md"
           id="collapse"
         >
-          <a href="/" className="navbar-brand">
-            Fiambres
-          </a>
+          <Link to="/" className="nav-link px-2 text-primary">Fiambres</Link>
           <button
             className="navbar-toggler"
             data-toggle="collapse"
@@ -22,18 +21,13 @@ const Header = () => {
           <div className="navbar-collapse collapse" id="navbar">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a href="#" className="nav-link">
-                  Inicio
-                </a>
+                <Link to="/productos/configuracion" className="nav-link px-2 text-primary">Productos</Link>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">
-                  About
-                </a>
               </li>
               <li className="nav-item ml-auto"></li>
             </ul>
-           <Buscador/>
+            <Buscador />
           </div>
         </nav>
       </header>

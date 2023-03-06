@@ -1,13 +1,13 @@
 import "./App.css";
 import Footer from "./assets/componentes/footer/Footer";
 import Header from "./assets/componentes/header/Header";
-import Main from "./assets/componentes/main/Main";
+import ContenedorRutas from "./assets/rutas/ContenedorRutas";
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Main/>
+      <ContenedorRutas/>
       <Footer/>
     </div>
   );
