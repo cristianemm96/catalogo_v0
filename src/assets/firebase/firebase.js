@@ -14,14 +14,25 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB-qxSxtx6rQM_XiwNNO29vss7rnTeLzWY",
-  authDomain: "esteban-d4946.firebaseapp.com",
-  projectId: "esteban-d4946",
-  storageBucket: "esteban-d4946.appspot.com",
-  messagingSenderId: "879868058526",
-  appId: "1:879868058526:web:d7f2b1ac584b499d75548f",
+
+  apiKey: "AIzaSyDn61ETz7wjSZ7k59E6I9Sdt1DkVCeQawI",
+
+  authDomain: "perezapp-b6557.firebaseapp.com",
+
+  projectId: "perezapp-b6557",
+
+  storageBucket: "perezapp-b6557.appspot.com",
+
+  messagingSenderId: "369047901197",
+
+  appId: "1:369047901197:web:40679e294d9756de0df144"
+
 };
+
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
