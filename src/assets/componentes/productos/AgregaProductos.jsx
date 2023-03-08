@@ -2,22 +2,28 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import { guardarProducto } from "../../firebase/firebase";
+import { useProductos } from "../../contexto/ContextoProductos";
 
 const AgregaProductos = () => {
+  const {agregarProducto} = useProductos()
   const [show, setShow] = useState(false);
   const [producto, setProducto] = useState({
     nombre: "",
     precio: null,
     articulo: "",
+    categoria:"",
+    descripcion:"",
     urlIMG: "",
   });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const agregarProducto = () => {
+  const agregarProductoNuevo = () => {
     setShow(false);
-    guardarProducto(producto)
+    agregarProducto(producto)
+    swal({
+    text: "Producto guardado correctamente",
+    icon: "success"})
   };
   return (
     <>
@@ -56,6 +62,10 @@ const AgregaProductos = () => {
               <Form.Control type="text" autoFocus name="articulo" onChange={e=>setProducto({...producto, articulo:e.target.value})}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Categoria</Form.Label>
+              <Form.Control type="text" autoFocus name="img" onChange={e=>setProducto({...producto, categoria:e.target.value})}/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>URL de la imagen</Form.Label>
               <Form.Control type="text" autoFocus name="img" onChange={e=>setProducto({...producto, urlIMG:e.target.value})}/>
             </Form.Group>
@@ -65,7 +75,7 @@ const AgregaProductos = () => {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Descripcion</Form.Label>
-              <Form.Control as="textarea" rows={2} name="descripcion" />
+              <Form.Control as="textarea" rows={2} name="descripcion" onChange={e=>setProducto({...producto, descripcion:e.target.value})}/>
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -73,7 +83,7 @@ const AgregaProductos = () => {
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
           </Button>
-          <Button variant="primary" onClick={agregarProducto}>
+          <Button variant="primary" onClick={agregarProductoNuevo}>
             Guardar Cambios
           </Button>
         </Modal.Footer>
@@ -83,26 +93,3 @@ const AgregaProductos = () => {
 };
 
 export default AgregaProductos;
-
-/*import React from 'react'
-
-const AgregaProductos = () => {
-  return (
-    <div style={{width:"100%", display:"flex"}}>
-      <form style={{display:"flex"}}>
-        <div>
-        <label>Nombre</label>
-        <input type="text" name='nombre'/>
-        </div>
-        <div>
-        <label>Descripcion</label>
-        <input type="text" name='nombre'/>
-        </div>
-
-      </form>
-    </div>
-  )
-}
-
-export default AgregaProductos
-*/

@@ -8,6 +8,7 @@ import {
   doc,
   getDoc,
   setDoc,
+  deleteDoc
 } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -47,8 +48,10 @@ export const guardarProducto = async (producto) => {
     nombre: producto.nombre,
     precio: parseInt(producto.precio),
     articulo: producto.articulo,
+    descripcion: producto.descripcion,
+    categoria: producto.categoria,
     urlIMG: producto.urlIMG,
-  }).then(alert("Agregado"));
+  })
 };
 
 export const obtenerDatosPorID = async (id) => {
@@ -62,6 +65,13 @@ export const editarProductoID = async (producto, id) => {
     nombre: producto.nombre,
     precio: producto.precio,
     articulo: producto.articulo,
+    categoria: producto.categoria,
+    descripcion: producto.descripcion,
     urlIMG: producto.urlIMG,
   });
 };
+
+export const eliminarProductoID = async(id)=>{
+  await deleteDoc(doc(db, "productos", id));
+}
+

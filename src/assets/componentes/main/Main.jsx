@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useProductos } from "../../contexto/contextoProductos";
+import { useProductos } from "../../contexto/ContextoProductos";
 import ListaProductos from "./ListaProductos";
 
 const Main = () => {
